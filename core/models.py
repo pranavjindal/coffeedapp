@@ -4,6 +4,7 @@ from django.db import models
 from django.core.urlresolvers import reverse
 from django.contrib.auth.models import User
 from django.db.models import Avg
+from geoposition.fields import GeopositionField
 
 RATING_CHOICES = (
     (0, 'None'),
@@ -37,6 +38,7 @@ class Location(models.Model):
 	title = models.CharField(max_length=300)
 	description = models.TextField(null=True, blank=True)
 	address = models.TextField(null=True, blank=True)
+	position = GeopositionField(null=True, blank=True)
 	hours = models.TextField(null=True, blank=True)
 	image_file = models.ImageField(upload_to=upload_to_location, null=True, blank=True)
 	created_at = models.DateTimeField(auto_now_add=True)
