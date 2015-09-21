@@ -2,8 +2,13 @@ boto==2.38.0
 dj-database-url==0.3.0
 dj-static==0.0.6
 Django==1.8.4
+django-bootstrap3==6.2.2
+django-etc==0.7.1
+django-sitegate==0.10.2
 django-storages==1.1.8
 django-toolbelt==0.0.1
+django-widget-tweaks==1.4.1
+djangoaddattr==0.0.1
 futures==3.0.3
 gunicorn==19.3.0
 Pillow==2.9.0
