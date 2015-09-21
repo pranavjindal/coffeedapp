@@ -31,7 +31,7 @@ class LocationDetailView(DetailView):
 		location = coremodels.Location.objects.get(id=self.kwargs['pk'])
 		if self.request.user.is_authenticated:
 			user_reviews = coremodels.Review.objects.filter(location=location, user=self.request.user)
-			if user_reviews.count>0:
+			if len(user_reviews) > 0:
 				context['user_review'] = user_reviews[0]
 			else:
 				context['user_review'] = None
