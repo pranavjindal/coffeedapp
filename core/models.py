@@ -15,17 +15,6 @@ RATING_CHOICES = (
     (5, '*****'),
 )
 
-WIFI_CHOICES = (
-	(0, 'Strong'),
-	(1, 'Poor'),
-	(2, 'None'),
-)
-
-YESNO_CHOICES = (
-	(0, 'No'),
-	(1, 'Yes'),
-)
-
 def upload_to_location(instance, filename):
     blocks = filename.split('.')
     ext = blocks[-1]
@@ -42,8 +31,6 @@ class Location(models.Model):
 	hours = models.TextField(null=True, blank=True)
 	image_file = models.ImageField(upload_to=upload_to_location, null=True, blank=True)
 	created_at = models.DateTimeField(auto_now_add=True)
-	wifi_strength = models.IntegerField(choices=WIFI_CHOICES, null=True, blank=True)
-	bathroom_choices = models.IntegerField(choices=YESNO_CHOICES, null=True, blank=True)
 
 	def __unicode__(self):
 		return self.title

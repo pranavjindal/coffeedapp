@@ -1,5 +1,11 @@
 {% extends "base/theme.html" %}
 {% block main_content %}
+<div class="data-layer">
+	<ul>
+		<li class="location-data" data-latitude="{{ location.position.latitude }}" data-longitude="{{ location.position.longitude }}" data-id="{{ location.id }}" data-url="{{ location.get_absolute_url }}">{{ location.title }}</li>
+	</ul>
+</div>
+<div id="map" class="wide-map"></div>
 <div class="row main-content">
 	<div class="row">
 		<div class="col-md-2"></div>

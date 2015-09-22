@@ -4,7 +4,7 @@
 <div class="data-layer">
 	<ul>
 		{% for location in object_list %}
-			<li class="location-data" data-latitude="{{ location.position.latitude }}" data-longitude="{{ location.position.longitude }}" data-id="{{ location.id }}">{{ location.title }}</li>
+			<li class="location-data" data-latitude="{{ location.position.latitude }}" data-longitude="{{ location.position.longitude }}" data-id="{{ location.id }}" data-url="{{ location.get_absolute_url }}">{{ location.title }}</li>
 		{% endfor %}
 	</ul>
 </div>
