@@ -19,7 +19,7 @@ import core.views as coreviews
 from django.contrib.auth.decorators import login_required
 
 urlpatterns = patterns('',
-	url(r'^$', coreviews.LandingView.as_view()),
+	url(r'landing/$', coreviews.LandingView.as_view()),
 	url(r'location/$', coreviews.LocationListView.as_view()),
     url(r'search/$', coreviews.SearchListView.as_view()),
 	url(r'location/(?P<pk>\d+)/detail$', coreviews.LocationDetailView.as_view(), name='location_detail'),

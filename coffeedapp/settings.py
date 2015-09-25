@@ -39,6 +39,8 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     "django.core.context_processors.tz",
     "django.contrib.messages.context_processors.messages",
     "django.core.context_processors.request",
+    'social.apps.django_app.context_processors.backends',
+    'social.apps.django_app.context_processors.login_redirect',
 )
 
 # Application definition
@@ -57,6 +59,7 @@ INSTALLED_APPS = (
     'bootstrap3',
     'geoposition',
     'bootstrap_pagination',
+    'social.apps.django_app.default',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -68,6 +71,13 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
+)
+
+AUTHENTICATION_BACKENDS = (
+    'social.backends.facebook.FacebookOAuth2',
+    'social.backends.google.GoogleOAuth2',
+    'social.backends.twitter.TwitterOAuth',
+    'django.contrib.auth.backends.ModelBackend',
 )
 
 ROOT_URLCONF = 'coffeedapp.urls'
@@ -144,6 +154,17 @@ AWS_S3_FORCE_HTTP_URL = True
 AWS_QUERYSTRING_AUTH = False
 AWS_SECRET_ACCESS_KEY = os.environ.get('AWSSecretKey')
 AWS_ACCESS_KEY_ID = os.environ.get('AWSAccessKeyId')
+
+SOCIAL_AUTH_FACEBOOK_KEY = os.environ.get('SOCIAL_AUTH_FACEBOOK_KEY')
+SOCIAL_AUTH_FACEBOOK_SECRET = os.environ.get('SOCIAL_AUTH_FACEBOOK_SECRET')
+
+SOCIAL_AUTH_LOGIN_REDIRECT_URL = '/location/'
+SOCIAL_AUTH_LOGIN_URL = '/'
+SOCIAL_AUTH_FACEBOOK_SCOPE = ['email']
+SOCIAL_AUTH_FACEBOOK_PROFILE_EXTRA_PARAMS = {
+  'locale': 'ru_RU',
+  'fields': 'id, name, email, age_range'
+}
 
 AWS_STORAGE_BUCKET_NAME = 'pranavjcoffeed'
 
